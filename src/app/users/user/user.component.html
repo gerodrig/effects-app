@@ -1,1 +1,51 @@
-<p>user works!</p>
+<div
+  *ngIf="loading"
+  class="alert alert-info text-center"
+  role="alert">
+  <h4 class="alert-heading">Loading...</h4>
+  <p>
+    <i class="fa fa-sync fa-spin fa-2x"></i>
+  </p>
+</div>
+
+<div
+  *ngIf="error && !loading"
+  class="alert alert-danger text-center"
+  role="alert">
+  <h4 class="alert-heading">Error</h4>
+  <pre>
+    {{ error | json }}
+  </pre>
+</div>
+
+<div *ngIf="user && !loading" class="row">
+    <div class="col-4 d-flex justify-content-center">
+        <img  [src]="user.picture" alt="user.id" class="img-fluid">
+    </div>
+
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>Name:</strong> {{ user.firstName }}
+            </li>
+            <li class="list-group-item">
+                <strong>Last Name:</strong> {{ user.lastName }}
+            </li>
+            <li class="list-group-item">
+                <strong>Gender:</strong> {{ user.gender }}
+            </li>
+            <li class="list-group-item">
+                <strong>Birthday:</strong> {{ user.dateOfBirth | date: 'dd MMMM' }}
+            </li>
+            <li class="list-group-item">
+                <strong>Address:</strong> {{ user.location?.country }}, {{ user.location?.city }}
+            </li>
+            <li class="list-group-item">
+                <strong>Email:</strong> {{ user.email }}
+            </li>
+            <li class="list-group-item">
+                <strong>Phone:</strong> {{ user.phone }}
+            </li>
+            </ul>
+    </div>
+</div>

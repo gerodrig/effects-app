@@ -13,9 +13,10 @@ export class User {
     public gender?: string;
     public email?: string;
     public dateOfBirth?: string;
-    public registerDate?: string;
     public phone?: string;
-    public location?: Location
+    public location?: Location;
+    public registerDate?: string;
+    public updatedDate?: string;
 
     constructor(
         public id: string,

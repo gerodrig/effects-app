@@ -16,4 +16,10 @@ export class UserService {
       map((response: any) => response['data'])
     );
   }
+
+  getUserById(id: string){
+    return this.http.get(`${environment.baseUrl}/user/${id}`, { headers: { 'app-id': environment.appId } }).pipe(
+      map((response: any) => response)
+    );
+  }
 }
